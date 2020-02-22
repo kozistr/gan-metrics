@@ -1,6 +1,11 @@
 device: "cpu"
-metric_type: "inception_score"
 batch_size: 32
-model_type: "inception_v3"
-dataset: "custom"
-n_splits: 10
+metric:
+  metric_type: "inception_score"
+  n_splits: 10
+model:
+  model_type: "inception_v3"
+  use_pooling_layer: False
+data:
+  dataset: "custom"
+
