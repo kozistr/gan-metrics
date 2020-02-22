@@ -24,7 +24,11 @@ $ cd ./gan-metrics
 
 `$ pip3 install -r requirements.txt`
 
-3. ...
+3. `Configure` the `config.yml` file
+`open the file and edit`
+
+4. `Run`
+`$ python3 -m metrics`
 
 ## Metrics
 
