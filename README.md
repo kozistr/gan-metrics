@@ -26,6 +26,17 @@ $ cd ./gan-metrics
 
 3. ...
 
+## Metrics
+
+| Metric | Paper |
+| :---: | :---: |
+| Inception Score (IS) | [arXiv](https://arxiv.org/abs/1801.01973) |
+| Frechet Inception Distance (FID) | |
+| SSIM & PSNR | |
+| Perceptual Path Length (PPL) | |
+| Learned Perceptual Image Patch Similarity (LPIPS) | [arXiv](https://arxiv.org/abs/1801.03924) |
+| Amazon's Mechanical Turk (AMT) | [Amazon](https://www.mturk.com/) |
+
 ## Author
 
 [Hyeongchan Kim](http://kozistr.tech) / @kozistr
