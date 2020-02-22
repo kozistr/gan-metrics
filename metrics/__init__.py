@@ -21,3 +21,5 @@ class MetricType(str, Enum):
     PPL = 'ppl'
     PSNR = 'psnr'
     SSIM = 'ssim'
+    EMD = 'emd'
+    MMD = 'mmd'
