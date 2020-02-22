@@ -5,8 +5,9 @@ import torch
 import torch.nn as nn
 from torch.nn.functional import softmax
 from torch.utils.data import DataLoader
-from model import load_model
+
 from metrics.utils import is_valid_batch_size, is_valid_device_type
+from model import load_model
 
 
 class InceptionScore:
@@ -37,7 +38,7 @@ class InceptionScore:
         if not is_valid_batch_size(self.batch_size):
             raise ValueError(f'[-] invalid batch_size : {self.batch_size}')
 
-        self.model: nn.Module = load_model(self.model_type, self.device)
+        self.model: nn.Module = load_model(self.model_type, False, self.device)
 
     def _get_predictions(self, x) -> np.ndarray:
         with torch.no_grad():
