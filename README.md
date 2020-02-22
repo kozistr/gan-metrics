@@ -15,20 +15,28 @@ Lots of evaluation metrics of Generative Adversarial Networks in pytorch
 
 1. `Clone` the repository and `Move` the directory.
 
-`
+```shell script
 $ git clone https://github.com/kozistr/gan-metrics
 $ cd ./gan-metrics
-`
+```
 
 2. `Install` the `requirements.txt` 
 
-`$ pip3 install -r requirements.txt`
+```shell script
+$ pip3 install -r requirements.txt
+```
 
-3. `Configure` the `config.yml` file
-`open the file and edit`
+3. `Configure` the `config.yml` 
+
+```shell script
+open the file and edit
+```
 
 4. `Run`
-`$ python3 -m metrics`
+
+```shell script
+$ python3 -m metrics
+```
 
 ## Metrics
 
