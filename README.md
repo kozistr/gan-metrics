@@ -50,6 +50,17 @@ $ python3 -m metrics
 | Learned Perceptual Image Patch Similarity (LPIPS) | [arXiv](https://arxiv.org/abs/1801.03924) | |
 | Amazon's Mechanical Turk (AMT) | [Amazon](https://www.mturk.com/) | |
 
+## DataSets
+
+You can edit the `transform` function with your flavor!
+
+* MNIST / FashionMNIST
+* CIFAR10 / CIFAR100
+* LSUN
+* CelebA
+* ImageNet
+* Custom
+
 ## Author
 
 [Hyeongchan Kim](http://kozistr.tech) / @kozistr
