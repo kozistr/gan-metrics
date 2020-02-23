@@ -10,6 +10,7 @@ Lots of evaluation metrics of Generative Adversarial Networks in pytorch
 * torchvision 0.4.x
 * numpy
 * scipy
+* pot
 
 ## Usage
 
