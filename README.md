@@ -9,7 +9,7 @@ Lots of evaluation metrics of Generative Adversarial Networks in pytorch
 * torch 1.x
 * torchvision 0.4.x
 * numpy
-* tqdm
+* scipy
 
 ## Usage
 
