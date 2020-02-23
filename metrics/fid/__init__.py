@@ -1,9 +1,7 @@
 from typing import Tuple
 
 import numpy as np
-import torch
 import torch.nn as nn
-from torch.nn.functional import softmax
 from torch.utils.data import DataLoader
 
 from metrics.utils import is_valid_batch_size, is_valid_device_type
@@ -38,10 +36,20 @@ class FID:
         if not is_valid_batch_size(self.batch_size):
             raise ValueError(f'[-] invalid batch_size : {self.batch_size}')
 
-        self.model: nn.Module = load_model(self.model_type, False, self.device)
+        self.model: nn.Module = load_model(self.model_type, True, self.device)
 
-    def _get_activation(self):
-        pass
+    def _get_activation(
+        self, data_loader: DataLoader, n_feats: int = 2048
+    ) -> np.ndarray:
+        n_samples: int = len(data_loader)
+
+        predictions = np.zeros((n_samples, n_feats), dtype=np.float32)
+        for idx, data in enumerate(data_loader):
+            _batch = self.model(data.to(self.device))
+            predictions[
+                self.batch_size * idx : self.batch_size * (idx + 1)
+            ] = _batch
+        return predictions
 
     @staticmethod
     def _get_activation_statistics(data_loader: DataLoader):
