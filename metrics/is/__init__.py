@@ -66,11 +66,11 @@ class InceptionScore:
         return np.mean(scores), np.std(scores)
 
     def __call__(
-        self, data_loader: DataLoader
+        self, data_loader: DataLoader, n_feats: int = 1000
     ) -> Tuple[np.ndarray, np.ndarray]:
         n_samples: int = len(data_loader)
 
-        predictions = np.zeros((n_samples, 1000), dtype=np.float32)
+        predictions = np.zeros((n_samples, n_feats), dtype=np.float32)
         for idx, data in enumerate(data_loader):
             _batch = self._get_predictions(data.to(self.device))
             predictions[
