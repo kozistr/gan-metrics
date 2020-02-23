@@ -11,3 +11,5 @@ data:
   dataset_type: "custom"
   dataset_path: "./"
   image_size: 299
+  lsun:
+    classes: 'bedroom_train'
