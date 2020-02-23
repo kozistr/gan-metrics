@@ -69,8 +69,8 @@ class FID:
         sigma = np.cov(predictions, rowvar=False)
         return mu, sigma
 
+    @staticmethod
     def _get_fid(
-        self,
         mu_fake: np.ndarray,
         sigma_fake: np.ndarray,
         mu_real: np.ndarray,
