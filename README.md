@@ -43,8 +43,9 @@ $ python3 -m metrics
 | Metric | Paper | Code |
 | :---: | :---: | :---: |
 | Inception Score (IS) | [arXiv](https://arxiv.org/abs/1801.01973) | [code]( ./metrics/is) |
-| Frechet Inception Distance (FID) | | |
+| Frechet Inception Distance (FID) | | [code](./metrics/fid) |
 | SSIM & PSNR | | |
+| precision & recall | | |
 | Perceptual Path Length (PPL) | | |
 | Learned Perceptual Image Patch Similarity (LPIPS) | [arXiv](https://arxiv.org/abs/1801.03924) | |
 | Amazon's Mechanical Turk (AMT) | [Amazon](https://www.mturk.com/) | |
