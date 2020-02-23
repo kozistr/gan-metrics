@@ -28,7 +28,6 @@ class FID:
         :param n_splits: int. number of splits for calculating the entropy.
         :param device: str. device type for loading the model.
         """
-        super().__init__()
 
         self.model_type = model_type
         self.batch_size = batch_size
