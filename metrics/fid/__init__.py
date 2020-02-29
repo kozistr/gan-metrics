@@ -1,12 +1,11 @@
 from typing import Tuple
 
 import numpy as np
-
-from model import ModelWrapper
-import torch.nn as nn
 from scipy.linalg import sqrtm
 from torch.utils.data import DataLoader
+
 from metrics.utils import is_valid_shape
+from model import ModelWrapper
 
 
 class FID(ModelWrapper):
