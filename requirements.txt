@@ -5,3 +5,4 @@ tqdm
 scipy
 cython
 pot
+pyyaml
