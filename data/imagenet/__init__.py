@@ -5,8 +5,10 @@ from torchvision.datasets import ImageFolder
 
 def _get_imagenet_transform(config):
     image_size: int = int(config['data']['image_size'])
+    crop_size: int = int(config['data']['crop_size'])
     return transforms.Compose([
         transforms.Resize(image_size),
+        transforms.CenterCrop(crop_size),
         transforms.ToTensor(),
         transforms.Normalize(
             (0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
