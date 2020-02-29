@@ -1,22 +1,22 @@
 from torch.utils.data import Dataset
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
+from typing import Tuple
 
 
-def _get_custom_transform(config):
-    image_size: int = int(config['data']['image_size'])
-    crop_size: int = int(config['data']['crop_size'])
+def _get_custom_transform(image_size: int, crop_size: int, mean: Tuple[float, float, float],
+                          std: Tuple[float, float, float]):
     return transforms.Compose([
         transforms.Resize(image_size),
         transforms.CenterCrop(crop_size),
         transforms.ToTensor(),
-        transforms.Normalize(
-            (0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        transforms.Normalize(mean, std),
     ])
 
 
-def get_custom_dataset(config) -> Dataset:
+def get_custom_dataset(dataset_path: str, image_size: int, crop_size: int, mean: Tuple[float, float, float],
+                       std: Tuple[float, float, float]) -> Dataset:
     return ImageFolder(
-        root=config['data']['dataset_path'],
-        transform=_get_custom_transform(config),
+        root=dataset_path,
+        transform=_get_custom_transform(image_size, crop_size, mean, std),
     )
