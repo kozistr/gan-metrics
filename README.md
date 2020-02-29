@@ -49,10 +49,11 @@ $ python3 -m metrics
 | Frechet Inception Distance (FID) | | [code](./metrics/fid) |
 | Kernel Inception Distance (KID) | | |
 | SSIM & PSNR | | |
-| precision & recall | | |
+| Precision & Recall | | |
 | Earth Mover's Distance (EMD, a.k.a wasserstein distance) | [wiki](https://en.wikipedia.org/wiki/Earth_mover%27s_distance) | [code](./metric/emd) |
 | Perceptual Path Length (PPL) | | |
 | Learned Perceptual Image Patch Similarity (LPIPS) | [arXiv](https://arxiv.org/abs/1801.03924) | |
+| Reliable Fidelity & Diversity (PRDC) | [arXiv](https://arxiv.org/abs/2002.09797) | |
 | Amazon's Mechanical Turk (AMT) | [Amazon](https://www.mturk.com/) | |
 
 ## DataSets
