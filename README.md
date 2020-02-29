@@ -63,6 +63,11 @@ You can edit the `transform` function with your flavor!
 * ImageNet
 * Custom
 
+## References
+
+* GAN-Metrics : https://github.com/xuqiantong/GAN-Metrics
+* GAN_Metrics-Tensorflow : https://github.com/taki0112/GAN_Metrics-Tensorflow
+
 ## Author
 
 [Hyeongchan Kim](http://kozistr.tech) / @kozistr
