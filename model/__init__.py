@@ -1,8 +1,10 @@
+from enum import unique, Enum
+from typing import List
+
 import torch.nn as nn
 from torchvision.models.inception import inception_v3
 from torchvision.models.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
 from torchvision.models.vgg import vgg16, vgg19
-from enum import unique, Enum
 
 from metrics.utils import is_valid_batch_size, is_valid_device_type
 
@@ -23,6 +25,15 @@ class ModelType(str, Enum):
     RESNET101 = 'resnet_101'
     RESNET152 = 'resnet_152'
     INCEPTION_V3 = 'inception_v3'
+
+
+IMAGENET_NORMALIZE_LIST: List[str] = [
+    ModelType.VGG16, ModelType.VGG19, ModelType.RESNET18, ModelType.RESNET34, ModelType.RESNET50, ModelType.RESNET101,
+    ModelType.RESNET152,
+]
+NORMAL_NORMALIZE_LIST: List[str] = [
+    ModelType.INCEPTION_V3
+]
 
 
 class ModelWrapper:

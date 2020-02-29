@@ -1,6 +1,7 @@
 import yaml
 from typing import Tuple
 from data import IMAGENET_NORMALIZE, NORMAL_NORMALIZE
+from model import NORMAL_NORMALIZE_LIST
 
 
 def get_config(fn: str):
@@ -16,6 +17,6 @@ def get_normalize_type(config) -> Tuple[Tuple[float, float, float], Tuple[float,
     :return: float values. mean, std values
     """
     model_type: str = config['model']['model_type']
-    if model_type in ['inception_v3']:
-        return IMAGENET_NORMALIZE
-    return NORMAL_NORMALIZE
+    if model_type in NORMAL_NORMALIZE_LIST:
+        return NORMAL_NORMALIZE
+    return IMAGENET_NORMALIZE
