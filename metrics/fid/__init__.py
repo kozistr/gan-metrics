@@ -1,16 +1,12 @@
 from typing import Tuple
 
 import numpy as np
-import torch
-import torch.nn as nn
-from torch.nn.functional import softmax
 from torch.utils.data import DataLoader
 
-from metrics.utils import is_valid_batch_size, is_valid_device_type
-from model import load_model
+from model import ModelWrapper
 
 
-class FID:
+class FID(ModelWrapper):
     def __init__(
         self,
         model_type: str = 'inception_v3',
@@ -25,20 +21,12 @@ class FID:
         :param n_splits: int. number of splits for calculating the entropy.
         :param device: str. device type for loading the model.
         """
-        super().__init__()
-
-        self.model_type = model_type
-        self.batch_size = batch_size
-        self.n_splits = n_splits
-        self.device = device
-
-        if not is_valid_device_type(self.device):
-            raise ValueError(f'[-] invalid device type : {self.device}')
-
-        if not is_valid_batch_size(self.batch_size):
-            raise ValueError(f'[-] invalid batch_size : {self.batch_size}')
-
-        self.model: nn.Module = load_model(self.model_type, False, self.device)
+        super().__init__(
+            model_type=model_type,
+            batch_size=batch_size,
+            n_splits=n_splits,
+            device=device,
+        )
 
     def _get_activation(self):
         pass

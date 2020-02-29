@@ -1,5 +1,7 @@
 from enum import Enum, unique
 
+from metrics.utils import is_valid_batch_size, is_valid_device_type
+
 
 @unique
 class DeviceType(str, Enum):
