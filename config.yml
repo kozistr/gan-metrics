@@ -1,15 +1,19 @@
 device: "cpu"
-batch_size: 32
 n_threads: 4
 metric:
   metric_type: "inception_score"
   n_splits: 10
 model:
+  batch_size: 32
   model_type: "inception_v3"
   use_pooling_layer: False
 data:
-  dataset_type: "custom"
-  dataset_path: "./"
+  real:
+    dataset_type: "custom"
+    dataset_path: "./"
+  fake:
+    dataset_type: "custom"
+    dataset_path: "./"
   image_size: 299
   crop_size: 299
   lsun:
