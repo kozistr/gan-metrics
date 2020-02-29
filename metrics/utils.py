@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from metrics import DeviceType
+from model import DeviceType
 
 
 def is_valid_device_type(device_type: str) -> bool:
