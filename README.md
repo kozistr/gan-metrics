@@ -9,7 +9,8 @@ Lots of evaluation metrics of Generative Adversarial Networks in pytorch
 * torch 1.x
 * torchvision 0.4.x
 * numpy
-* tqdm
+* scipy
+* pot
 
 ## Usage
 
@@ -43,11 +44,23 @@ $ python3 -m metrics
 | Metric | Paper | Code |
 | :---: | :---: | :---: |
 | Inception Score (IS) | [arXiv](https://arxiv.org/abs/1801.01973) | [code]( ./metrics/is) |
-| Frechet Inception Distance (FID) | | |
+| Frechet Inception Distance (FID) | | [code](./metrics/fid) |
 | SSIM & PSNR | | |
+| precision & recall | | |
 | Perceptual Path Length (PPL) | | |
 | Learned Perceptual Image Patch Similarity (LPIPS) | [arXiv](https://arxiv.org/abs/1801.03924) | |
 | Amazon's Mechanical Turk (AMT) | [Amazon](https://www.mturk.com/) | |
+
+## DataSets
+
+You can edit the `transform` function with your flavor!
+
+* MNIST / FashionMNIST
+* CIFAR10 / CIFAR100
+* LSUN
+* CelebA
+* ImageNet
+* Custom
 
 ## Author
 

@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 
 from metrics import DeviceType
@@ -13,3 +14,7 @@ def is_valid_device_type(device_type: str) -> bool:
 
 def is_valid_batch_size(batch_size: int) -> bool:
     return batch_size > 0
+
+
+def is_valid_shape(query: np.ndarray, reference: np.ndarray) -> bool:
+    return query.shape == reference.shape

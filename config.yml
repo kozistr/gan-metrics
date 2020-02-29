@@ -1,5 +1,6 @@
 device: "cpu"
 batch_size: 32
+n_threads: 4
 metric:
   metric_type: "inception_score"
   n_splits: 10
@@ -7,5 +8,8 @@ model:
   model_type: "inception_v3"
   use_pooling_layer: False
 data:
-  dataset: "custom"
-
+  dataset_type: "custom"
+  dataset_path: "./"
+  image_size: 299
+  lsun:
+    classes: 'bedroom_train'
