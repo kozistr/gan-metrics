@@ -12,6 +12,7 @@ Lots of evaluation metrics of Generative Adversarial Networks in pytorch
 * scipy
 * cython
 * pot
+* pyyaml
 
 ## Usage
 
