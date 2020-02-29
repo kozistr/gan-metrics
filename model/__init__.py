@@ -1,5 +1,7 @@
 import torch.nn as nn
 from torchvision.models.inception import inception_v3
+from torchvision.models.resnet import resnet18, resnet34, resnet50, resnet101, resnet152
+from torchvision.models.vgg import vgg16, vgg19
 
 from metrics import ModelType
 from metrics.utils import is_valid_batch_size, is_valid_device_type
@@ -43,16 +45,27 @@ def load_model(model_type: str, use_pooling_layer: bool = False, device: str = '
     :param device: str. type of device.
     :return: nn.Module. model instance.
     """
-    if model_type == ModelType.INCEPTION_V3:
+    if model_type == ModelType.VGG16:
+        model = vgg16(pretrained=True)
+    elif model_type == ModelType.VGG19:
+        model = vgg19(pretrained=True)
+    elif model_type == ModelType.RESNET18:
+        model = resnet18(pretrained=True)
+    elif model_type == ModelType.RESNET34:
+        model = resnet34(pretrained=True)
+    elif model_type == ModelType.RESNET50:
+        model = resnet50(pretrained=True)
+    elif model_type == ModelType.RESNET101:
+        model = resnet101(pretrained=True)
+    elif model_type == ModelType.RESNET152:
+        model = resnet152(pretrained=True)
+    elif model_type == ModelType.INCEPTION_V3:
         model = inception_v3(pretrained=True, transform_input=False)
-        if use_pooling_layer:
-            model.fc = nn.Sequential()
-    elif model_type == ModelType.INCEPTION_V2:
-        raise NotImplementedError(
-            f'[-] not implemented model_type : {model_type}'
-        )
     else:
-        raise ValueError(f'[-] invalid model_type : {model_type}')
+        raise NotImplementedError(f'[-] invalid model_type : {model_type}')
+
+    if use_pooling_layer:
+        model.fc = nn.Sequential()
 
     model.to(device)
     model.eval()
