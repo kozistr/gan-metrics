@@ -47,6 +47,7 @@ $ python3 -m metrics
 | :---: | :---: | :---: |
 | Inception Score (IS) | [arXiv](https://arxiv.org/abs/1801.01973) | [code]( ./metrics/is) |
 | Frechet Inception Distance (FID) | | [code](./metrics/fid) |
+| Kernel Inception Distance (KID) | | |
 | SSIM & PSNR | | |
 | precision & recall | | |
 | Earth Mover's Distance (EMD, a.k.a wasserstein distance) | [wiki](https://en.wikipedia.org/wiki/Earth_mover%27s_distance) | [code](./metric/emd) |
