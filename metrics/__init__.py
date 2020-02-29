@@ -11,7 +11,13 @@ class DeviceType(str, Enum):
 
 @unique
 class ModelType(str, Enum):
-    INCEPTION_V2 = 'inception_v2'
+    VGG16 = 'vgg16'
+    VGG19 = 'vgg19'
+    RESNET18 = 'resnet_18'
+    RESNET34 = 'resnet_34'
+    RESNET50 = 'resnet_50'
+    RESNET101 = 'resnet_101'
+    RESNET152 = 'resnet_152'
     INCEPTION_V3 = 'inception_v3'
 
 
