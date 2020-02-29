@@ -1,7 +1,8 @@
 device: "cpu"
 n_threads: 4
 metric:
-  metric_type: "inception_score"
+  metric_type:
+    - "inception_score"
   n_splits: 10
 model:
   batch_size: 32
