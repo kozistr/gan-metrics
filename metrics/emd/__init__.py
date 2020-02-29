@@ -1,8 +1,6 @@
 import numpy as np
-import torch.nn as nn
-from ot import emd2
+from ot import emd, emd2
 
-from metrics.utils import is_valid_batch_size, is_valid_device_type
 from model import ModelWrapper
 
 
@@ -30,10 +28,16 @@ class EMD(ModelWrapper):
         )
 
     @staticmethod
-    def _get_emd(x: np.ndarray, use_sqrt: bool = False) -> np.ndarray:
+    def _get_emd(
+        x: np.ndarray, use_emd_2: bool = True, use_sqrt: bool = False
+    ) -> np.ndarray:
         if use_sqrt:
             x = np.sqrt(np.abs(x))
-        x = emd2([], [], x)
+
+        if use_emd_2:
+            x = emd2([], [], x)
+        else:
+            x = emd([], [], x)
         return x
 
     def __call__(self, x, use_sqrt: bool = True):
