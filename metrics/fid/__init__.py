@@ -1,21 +1,20 @@
 from typing import Tuple
 
 import numpy as np
-
-from model import ModelWrapper
-import torch.nn as nn
 from scipy.linalg import sqrtm
 from torch.utils.data import DataLoader
+
 from metrics.utils import is_valid_shape
+from model import ModelWrapper
 
 
 class FID(ModelWrapper):
     def __init__(
-        self,
-        model_type: str = 'inception_v3',
-        batch_size: int = 32,
-        n_splits: int = 10,
-        device: str = 'cpu',
+            self,
+            model_type: str = 'inception_v3',
+            batch_size: int = 32,
+            n_splits: int = 10,
+            device: str = 'cpu',
     ):
         """
         Calculating Inception Score.
@@ -33,7 +32,7 @@ class FID(ModelWrapper):
         )
 
     def _get_activation(
-        self, data_loader: DataLoader, n_feats: int = 2048
+            self, data_loader: DataLoader, n_feats: int = 2048
     ) -> np.ndarray:
         n_samples: int = len(data_loader)
 
@@ -41,12 +40,12 @@ class FID(ModelWrapper):
         for idx, data in enumerate(data_loader):
             _batch = self.model(data.to(self.device))
             predictions[
-                self.batch_size * idx : self.batch_size * (idx + 1)
+            self.batch_size * idx: self.batch_size * (idx + 1)
             ] = _batch
         return predictions
 
     def _get_activation_statistics(
-        self, data_loader: DataLoader
+            self, data_loader: DataLoader
     ) -> Tuple[np.ndarray, np.ndarray]:
         """
         Getting mean over samples & covariance matrix of the features
@@ -60,11 +59,11 @@ class FID(ModelWrapper):
 
     @staticmethod
     def _get_fid(
-        mu_fake: np.ndarray,
-        sigma_fake: np.ndarray,
-        mu_real: np.ndarray,
-        sigma_real: np.ndarray,
-        epsilon: float = 1e-6,
+            mu_fake: np.ndarray,
+            sigma_fake: np.ndarray,
+            mu_real: np.ndarray,
+            sigma_real: np.ndarray,
+            epsilon: float = 1e-6,
     ) -> np.ndarray:
         """
         Getting Frechet Inception Distance between two multi-variate gaussian.
@@ -114,7 +113,7 @@ class FID(ModelWrapper):
         return distribution
 
     def __call__(
-        self, fake_data_loader: DataLoader, real_data_loader: DataLoader
+            self, fake_data_loader: DataLoader, real_data_loader: DataLoader
     ) -> np.ndarray:
         """
         :param fake_data_loader: DataLoader. generated samples.
